@@ -31,9 +31,9 @@ return [
 
     'connections' => [
 
-        'mongodb' => [
+             'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => getenv('DB_URI') ?: env('DB_URI', null),
+            'dsn' => 'mongodb+srv://soleman:laptop60@cluster0.lcuci5v.mongodb.net/eventhub?appName=Cluster0',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', 27017),
             'database' => env('DB_DATABASE', 'eventhub'),
