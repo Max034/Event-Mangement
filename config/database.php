@@ -33,6 +33,7 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
+            'dsn' => getenv('DB_URI') ?: env('DB_URI', null),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', 27017),
             'database' => env('DB_DATABASE', 'eventhub'),
