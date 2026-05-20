@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System - Project Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #34495e;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .cover {
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 50px;
+        }
+        .cover h1 {
+            border: none;
+            font-size: 2.5em;
+        }
+        .cover p {
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cover">
+        <h1>Event Management System</h1>
+        <p>Project Report</p>
+    </div>
+
+    <h2>1. Introduction</h2>
+    <p>The <strong>Event Management System</strong> is a robust, web-based application designed to facilitate the creation, management, and booking of events. The system caters to multiple user roles, providing an intuitive interface for event organizers to list their events, and for attendees to securely book tickets and manage their reservations.</p>
+
+    <h2>2. Technology Stack</h2>
+    <ul>
+        <li><strong>Backend Framework:</strong> Laravel (PHP)</li>
+        <li><strong>Database:</strong> MongoDB (integrated via <code>mongodb/laravel-mongodb</code> package)</li>
+        <li><strong>Authentication:</strong> Laravel's built-in authentication system</li>
+        <li><strong>Frontend/Views:</strong> Laravel Blade Templates</li>
+    </ul>
+
+    <h2>3. System Architecture & Models</h2>
+    <p>The system uses the Model-View-Controller (MVC) architectural pattern, keeping business logic, data presentation, and routing cleanly separated.</p>
+
+    <h3>Core Entities (MongoDB Collections)</h3>
+    <ol>
+        <li><strong>Users:</strong> Handles system authentication and role-based access. Users can act as regular attendees or event organizers (or administrators).</li>
+        <li><strong>Events:</strong> Stores comprehensive details about an event, including title, slug, description, venue, address, city, schedule (<code>starts_at</code>, <code>ends_at</code>), pricing, capacity, and the number of currently booked seats. Events also feature image uploads and statuses (<code>draft</code>, <code>published</code>, <code>cancelled</code>).</li>
+        <li><strong>Categories:</strong> Organizes events into specific themes or genres, helping users filter and discover events easily.</li>
+        <li><strong>Bookings:</strong> Tracks ticket reservations. Each booking is linked to a user and an event, storing the number of tickets, total amount, attendee details, a unique randomly generated <code>ticket_code</code>, and the booking status.</li>
+    </ol>
+
+    <div class="page-break"></div>
+
+    <h2>4. Key Features</h2>
+
+    <h3>4.1 Role-Based Access Control</h3>
+    <ul>
+        <li><strong>Attendees:</strong> Can browse events, book tickets, view their booking history, and cancel active bookings if needed.</li>
+        <li><strong>Organizers:</strong> Can access a dedicated dashboard to create new events, update existing event details, upload event banners/images, and track how many seats have been booked.</li>
+        <li><strong>Administrators:</strong> Possess global privileges to manage any user's events or bookings and monitor the entire system's activity.</li>
+    </ul>
+
+    <h3>4.2 Event Management</h3>
+    <ul>
+        <li><strong>Creation & Publishing:</strong> Organizers can draft events, providing detailed information such as venue, price, and capacity. The application automatically generates SEO-friendly slugs for event URLs.</li>
+        <li><strong>Capacity Tracking:</strong> The system dynamically calculates available seats using <code>seatsRemaining()</code> and strictly prevents overbooking. It also determines if an event is upcoming or sold out.</li>
+        <li><strong>Image Handling:</strong> Seamless handling of event banner image uploads using Laravel's local storage capabilities.</li>
+    </ul>
+
+    <h3>4.3 Secure Booking System</h3>
+    <ul>
+        <li><strong>Real-Time Seat Allocation:</strong> When a user initiates a booking, the system validates the requested ticket count against the remaining capacity. Upon successful validation, it records the booking and increments the <code>seats_booked</code> property on the Event model.</li>
+        <li><strong>Ticket Codes:</strong> Every confirmed booking is assigned a unique, randomly generated 10-character alphanumeric ticket code for verification purposes.</li>
+        <li><strong>Cancellation Flow:</strong> Users can cancel their bookings. Upon cancellation, the system updates the booking status and decrements the event's booked seat count, immediately freeing up capacity for other attendees.</li>
+    </ul>
+
+    <h2>5. Conclusion</h2>
+    <p>The Event Management System provides a highly scalable and flexible solution for event coordination by leveraging the rapid development capabilities of Laravel and the document-oriented flexibility of MongoDB. Its robust booking logic ensures data consistency and provides a seamless user experience for both organizers and attendees.</p>
+
+</body>
+</html>
