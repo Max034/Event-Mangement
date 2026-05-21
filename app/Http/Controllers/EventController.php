@@ -38,7 +38,7 @@ class EventController extends Controller
         $data['is_featured'] = $request->boolean('is_featured');
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->storeOnCloudinary('events')->getSecurePath();
+            $data['image'] = cloudinary()->uploadApi()->upload($request->file('image')->getRealPath())['secure_url'];
         }
 
         Event::create($data);
@@ -62,7 +62,7 @@ class EventController extends Controller
         $data['is_featured'] = $request->boolean('is_featured');
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->storeOnCloudinary('events')->getSecurePath();
+            $data['image'] = cloudinary()->uploadApi()->upload($request->file('image')->getRealPath())['secure_url'];
         }
 
         $event->update($data);

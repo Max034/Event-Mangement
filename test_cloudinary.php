@@ -5,8 +5,10 @@ $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
 
 try {
-    $file = new \Illuminate\Http\UploadedFile(__FILE__, 'test.php');
-    var_dump($file->hasMacro('storeOnCloudinary'));
+    file_put_contents('test.jpg', 'fake image data 12345');
+    $api = cloudinary()->uploadApi();
+    $response = $api->upload('test.jpg');
+    var_dump($response['secure_url']);
 } catch (\Throwable $e) {
     echo $e->getMessage() . "\n";
     echo $e->getTraceAsString();
