@@ -2019,12 +2019,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mongodb/laravel-mongodb",
-                "reference": "5b7b80feedcb94b5d6c56d61c0a5d885323d509c"
+                "reference": "7ae18756959ba9bc2b44c62d897d29bb1e39c5a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mongodb/laravel-mongodb/zipball/5b7b80feedcb94b5d6c56d61c0a5d885323d509c",
-                "reference": "5b7b80feedcb94b5d6c56d61c0a5d885323d509c",
+                "url": "https://api.github.com/repos/mongodb/laravel-mongodb/zipball/7ae18756959ba9bc2b44c62d897d29bb1e39c5a2",
+                "reference": "7ae18756959ba9bc2b44c62d897d29bb1e39c5a2",
                 "shasum": ""
             },
             "require": {
@@ -2120,7 +2120,7 @@
                 "issues": "https://www.mongodb.com/support",
                 "security": "https://www.mongodb.com/security"
             },
-            "time": "2026-05-11T08:08:36+00:00"
+            "time": "2026-05-19T07:40:14+00:00"
         },
         {
             "name": "mongodb/mongodb",
