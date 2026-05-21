@@ -19,7 +19,7 @@
                 <a href="{{ route('bookings.show', $b->_id) }}" class="flex gap-4 bg-white border rounded-2xl p-4 hover:border-indigo-300 hover:shadow-sm">
                     <div class="w-24 h-24 rounded-xl overflow-hidden bg-slate-200 shrink-0">
                         @if($e && $e->image)
-                            <img src="{{ asset('storage/'.$e->image) }}" class="w-full h-full object-cover">
+                            <img src="{{ Str::startsWith($e->image, ['http://', 'https://']) ? $e->image : asset('storage/'.$e->image) }}" class="w-full h-full object-cover">
                         @else
                             <div class="w-full h-full hero-gradient flex items-center justify-center text-white text-2xl font-bold">{{ strtoupper(substr($e?->title ?? '?',0,1)) }}</div>
                         @endif

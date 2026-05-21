@@ -9,7 +9,7 @@
         <div class="lg:col-span-2">
             <div class="aspect-[16/9] bg-slate-200 rounded-2xl overflow-hidden">
                 @if($event->image)
-                    <img src="{{ asset('storage/'.$event->image) }}" alt="" class="w-full h-full object-cover">
+                    <img src="{{ Str::startsWith($event->image, ['http://', 'https://']) ? $event->image : asset('storage/'.$event->image) }}" alt="" class="w-full h-full object-cover">
                 @else
                     <div class="w-full h-full hero-gradient flex items-center justify-center text-white text-7xl font-bold">{{ strtoupper(substr($event->title,0,1)) }}</div>
                 @endif

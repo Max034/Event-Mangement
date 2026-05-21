@@ -59,7 +59,7 @@
     <div class="md:col-span-2">
         <label class="block text-sm font-medium mb-1">Image</label>
         @if(isset($event) && $event->image)
-            <img src="{{ asset('storage/'.$event->image) }}" class="w-32 h-32 object-cover rounded-lg mb-2 border">
+            <img src="{{ Str::startsWith($event->image, ['http://', 'https://']) ? $event->image : asset('storage/'.$event->image) }}" class="w-32 h-32 object-cover rounded-lg mb-2 border">
         @endif
         <input type="file" name="image" accept="image/*" class="w-full text-sm">
         @error('image') <p class="text-xs text-red-600 mt-1">{{ $message }}</p> @enderror

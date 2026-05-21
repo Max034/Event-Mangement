@@ -1,7 +1,7 @@
 <a href="{{ route('events.show', $event->_id) }}" class="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-indigo-300 hover:shadow-lg transition flex flex-col">
     <div class="relative aspect-[16/9] bg-slate-200 overflow-hidden">
         @if($event->image)
-            <img src="{{ asset('storage/'.$event->image) }}" alt="{{ $event->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <img src="{{ Str::startsWith($event->image, ['http://', 'https://']) ? $event->image : asset('storage/'.$event->image) }}" alt="{{ $event->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
         @else
             <div class="w-full h-full hero-gradient flex items-center justify-center text-white text-5xl font-bold">
                 {{ strtoupper(substr($event->title,0,1)) }}
