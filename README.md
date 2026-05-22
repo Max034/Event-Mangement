@@ -13,6 +13,14 @@
 
 ---
 
+## 📖 About The Project
+
+**EventHub** is a comprehensive, feature-rich event management platform designed to seamlessly connect event organizers with eager attendees. Whether you are hosting an intimate local workshop, a massive music festival, or a professional tech conference, EventHub provides all the tools needed to publish events, manage seating capacities, and track ticket sales in real-time. 
+
+Built with scalability and modern web aesthetics in mind, it leverages a robust **Laravel 11** backend paired with the flexibility of a **MongoDB** NoSQL database, ensuring lightning-fast searches and flexible data management.
+
+---
+
 ## 🚀 Live Demo
 
 *(Add your Vercel URL here in your repository settings "Website" field!)*
